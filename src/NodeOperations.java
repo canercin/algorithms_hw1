@@ -157,4 +157,16 @@ public class NodeOperations {
         }
         System.out.print("gelinebilir.");
     }
+
+    /**
+     * @param nodeHeads adjacency list of nodes in a graph
+     * @param searchingNodeNum output degree is the number of the search node
+     */
+    public void degreePrinter(Node[] nodeHeads, int searchingNodeNum){
+        int entryDegree = entryDegreeCounter(nodeHeads, searchingNodeNum);
+        int outputDegree = outputDegreeCounter(nodeHeads, searchingNodeNum);
+        Node city = whichCity(nodeHeads, searchingNodeNum);
+        assert city != null;
+        System.out.printf("%s/%d şehrin giriş derecesi %d; çıkış derecesi %d.\n", city.cityName, city.cityNum, entryDegree, outputDegree);
+    }
 }

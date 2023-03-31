@@ -24,11 +24,10 @@ public class Main {
             column++;
         }
         operations.adjacencyListPrinter(nodeHeads); //test passed
-        System.out.println(operations.entryDegreeCounter(nodeHeads,42)); //try of all
-        System.out.println(operations.outputDegreeCounter(nodeHeads,42));
+        operations.degreePrinter(nodeHeads, 42);
         System.out.println(operations.edgeCounter(nodeHeads));
         operations.whereToGo(nodeHeads, 34);
-        operations.cameCityFrom(nodeHeads, 34);
+        operations.cameCityFrom(nodeHeads, 42);
     }
 
     /**
