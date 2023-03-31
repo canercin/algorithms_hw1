@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     //file dosyasının bulunmasında sıkıntı olabilir, kesin yolu kopyalarak sorunun üstesinden geldim.
-    static File file = new File("C:\\Users\\Caner Çin\\OneDrive\\Masaüstü\\java\\untitled2\\src\\text.txt");
+    static File file = new File("src/sources");
 
     public static void main(String[] args) throws FileNotFoundException {
         NodeOperations operations = new NodeOperations();
