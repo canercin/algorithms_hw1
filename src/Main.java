@@ -3,8 +3,8 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Main {
-    //file dosyasının bulunmasında sıkıntı olabilir, kesin yolu kopyalarak sorunun üstesinden geldim.
-    static File file = new File("src/sources");
+    //file dosyasının bulunmasında sıkıntı olabilir
+    static File file = new File("src/sources/text.txt");
 
     public static void main(String[] args) throws FileNotFoundException {
         NodeOperations operations = new NodeOperations();
