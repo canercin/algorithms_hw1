@@ -33,6 +33,7 @@ public class Main {
                     5 -> Plakası girilen şehre hangi şehirlerden gelinebileceğini listeler,
                     6 -> çıkış için seçiniz.                  \s
                     """);
+            System.out.println("Seçiminizi Giriniz -> ");
             int choose = scanner.nextInt();
             scanner.nextLine();
             switch (choose){
