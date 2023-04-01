@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Main {
-    //file dosyasının bulunmasında sıkıntı olabilir
+    //file dosyasının bulunmasında sıkıntı olabilir.
     static File file = new File("src/sources/text.txt");
 
     public static void main(String[] args) throws FileNotFoundException {
@@ -43,7 +43,7 @@ public class Main {
                     scanner.nextLine();
                     operations.degreePrinter(nodeHeads, cityPlate);
                 }
-                case 3 -> System.out.printf("Graftaki düğüm sayısı = %d \n", operations.edgeCounter(nodeHeads));
+                case 3 -> System.out.printf("Graftaki kenar sayısı = %d \n\n", operations.edgeCounter(nodeHeads));
                 case 4 -> {
                     System.out.print("Plaka giriniz -> ");
                     int cityPlate = scanner.nextInt();

@@ -32,6 +32,8 @@ public class NodeOperations {
             }
             System.out.println();
         }
+        System.out.println("----------------------------");
+        System.out.println();
     }
 
     /**
@@ -101,17 +103,21 @@ public class NodeOperations {
                 if (node.cityNum == fromWhichCity){
                     System.out.printf("%s/%d şehrinden; ", node.cityName, node.cityNum);
                     node = node.nextNode;
-                    while(node != null){
-                        System.out.printf(" %s/%d", node.cityName, node.cityNum);
-                        node = node.nextNode;
-                        System.out.print(",");
+                    if (node != null){
+                        while(node != null){
+                            System.out.printf(" %s/%d", node.cityName, node.cityNum);
+                            node = node.nextNode;
+                            System.out.print(",");
+                        }
+                        System.out.println(" gidilir.\n");
+                        break;
+                    }else {
+                        System.out.print("bir yere gidilemez. \n\n");
                     }
-                    System.out.println(" gidilir.");
-                    break;
                 }
             }
         }else {
-            System.out.println("Şehir bulunamadı --HATA--");
+            System.out.println("Şehir bulunamadı --HATA--\n");
         }
     }
 
@@ -158,12 +164,16 @@ public class NodeOperations {
      * @param city came of which city
      */
     public static void ccfPrinter(Node listHead, Node city){
-        System.out.printf("%s/%d şehrine;", city.cityName, city.cityNum);
-        while (listHead != null){
-            System.out.printf(" %s/%d,", listHead.cityName, listHead.cityNum);
-            listHead = listHead.nextNode;
+        if (listHead != null){
+            System.out.printf("%s/%d şehrine;", city.cityName, city.cityNum);
+            while (listHead != null){
+                System.out.printf(" %s/%d,", listHead.cityName, listHead.cityNum);
+                listHead = listHead.nextNode;
+            }
+            System.out.print("gelinebilir.\n\n");
+        }else {
+            System.out.println("Bu şehrin bağlantısı yoktur.");
         }
-        System.out.print("gelinebilir.\n");
     }
 
     /**
@@ -175,9 +185,9 @@ public class NodeOperations {
         int outputDegree = outputDegreeCounter(nodeHeads, searchingNodeNum);
         Node city = whichCity(nodeHeads, searchingNodeNum);
         if (city != null) {
-            System.out.printf("%s/%d şehrin giriş derecesi %d; çıkış derecesi %d.\n", city.cityName, city.cityNum, entryDegree, outputDegree);
+            System.out.printf("%s/%d şehrin giriş derecesi %d; çıkış derecesi %d.\n\n", city.cityName, city.cityNum, entryDegree, outputDegree);
         }else {
-            System.out.println("İlgii değerli şehir bulunamadı --HATA--");
+            System.out.println("İlgili değerli şehir bulunamadı --HATA--\n");
         }
     }
 }
