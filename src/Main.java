@@ -8,8 +8,9 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
         NodeOperations operations = new NodeOperations();
-        Scanner reader = new Scanner(file);
+        Scanner reader = new Scanner(file), scanner = new Scanner(System.in);
         int nodeCount = nodeCounter(), column = 0;
+        boolean bool = true;
         Node[] nodeHeads = new Node[nodeCount];
         while (reader.hasNextLine()){
             String line = reader.nextLine();
@@ -23,11 +24,42 @@ public class Main {
             }
             column++;
         }
-        operations.adjacencyListPrinter(nodeHeads); //test passed
-        operations.degreePrinter(nodeHeads, 42);
-        System.out.println(operations.edgeCounter(nodeHeads));
-        operations.whereToGo(nodeHeads, 34);
-        operations.cameCityFrom(nodeHeads, 42);
+        do {
+            System.out.println("""
+                    1 -> Komşuluk Listesini listeler,
+                    2 -> Plakası girilen şehrin giriş ve çıkış düğümlerini hesaplar,
+                    3 -> Graftaki toplam kenar sayısını listeler,
+                    4 -> Plakası girilen şehirden hangi şehirlere gidilebileceğini listeler,
+                    5 -> Plakası girilen şehre hangi şehirlerden gelinebileceğini listeler,
+                    6 -> çıkış için seçiniz.                  \s
+                    """);
+            int choose = scanner.nextInt();
+            scanner.nextLine();
+            switch (choose){
+                case 1 -> operations.adjacencyListPrinter(nodeHeads);
+                case 2 -> {
+                    System.out.print("Plaka giriniz -> ");
+                    int cityPlate = scanner.nextInt();
+                    scanner.nextLine();
+                    operations.degreePrinter(nodeHeads, cityPlate);
+                }
+                case 3 -> System.out.printf("Graftaki düğüm sayısı = %d \n", operations.edgeCounter(nodeHeads));
+                case 4 -> {
+                    System.out.print("Plaka giriniz -> ");
+                    int cityPlate = scanner.nextInt();
+                    scanner.nextLine();
+                    operations.whereToGo(nodeHeads, cityPlate);
+                }
+                case 5 -> {
+                    System.out.print("Plaka giriniz -> ");
+                    int cityPlate = scanner.nextInt();
+                    scanner.nextLine();
+                    operations.cameCityFrom(nodeHeads, cityPlate);
+                }
+                case 6 -> bool = false;
+                default -> System.out.println("Geçerli işlem giriniz");
+            }
+        }while(bool);
     }
 
     /**
