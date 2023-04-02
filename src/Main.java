@@ -14,7 +14,7 @@ public class Main {
         Node[] nodeHeads = new Node[nodeCount];
         while (reader.hasNextLine()){
             String line = reader.nextLine();
-            String[] list = line.split("->|/");
+            String[] list = line.split("->|/| ");
             for (int item = 0; item < list.length; item = item + 2){
                 if(item == 0){
                     nodeHeads[column] = new Node(list[item], Integer.parseInt(list[item + 1]));
